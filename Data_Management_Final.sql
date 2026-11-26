@@ -52,4 +52,12 @@ CREATE TABLE PAYMENT(
 			 payment_value NUMERIC(3,2)
 			 FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
 			 
-)
+);
+
+CREATE TABLE REVIEWS (
+		review_id TEXT PRIMARY KEY,
+		order_id TEXT,
+		review_score INTEGER,
+		review_comment_message TEXT
+		FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
+);
