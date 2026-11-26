@@ -87,3 +87,11 @@ FROM olist_sellers_dataset;
 INSERT INTO ORDER_ITEMS
 SELECT order_id, order_item_id, seller_id, shipping_limit_date, price, freight_value
 FROM olist_order_items_dataset;
+
+DROP TABLE olist_customers_dataset;
+DROP TABLE olist_order_items_dataset;
+DROP TABLE olist_order_payments_dataset;
+DROP TABLE olist_order_reviews_dataset;
+DROP TABLE olist_orders_dataset;
+DROP TABLE olist_products_dataset;
+DROP TABLE olist_sellers_dataset;
