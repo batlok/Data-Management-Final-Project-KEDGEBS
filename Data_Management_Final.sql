@@ -12,6 +12,27 @@ CREATE TABLE CATEGORIES (
 			 name_en TEXT
 );
 
+CREATE TABLE ORDERS (
+		order_id TEXT PRIMARY KEY,
+		customer_id TEXT,
+		order_status char(20),
+		order_purchase_timestamp datetime
+		order_delivered_customer_date  datetime,
+		FOREIGN key (customer_id) REFERENCES CUSTOMERS(customer_id)
+);
+
+CREATE TABLE PRODUCT (
+		product_id TEXT PRIMARY KEY,
+		product_category_name TEXT
+);
+
+CREATE TABLE SELLERS (
+		seller_id TEXT PRIMARY KEY,
+		seller_city TEXT,
+		seller_state TEXT
+);
+
+
 CREATE TABLE ORDER_ITEMS (
              order_id TEXT NOT NULL,
 			 item_no INTEGER NOT NULL,
@@ -20,8 +41,8 @@ CREATE TABLE ORDER_ITEMS (
 			 price REAL NOT NULL,
 			 freight_value REAL NOT NULL,
 			 PRIMARY KEY(order_id, item_no),
-			 FOREIGN KEY(order_id) REFERENCES olist_order_items_dataset(order_id),
-			 FOREIGN KEY(seller_id) REFERENCES olist_sellers_dataset(seller_id)
+			 FOREIGN KEY(order_id) REFERENCES ORDERS(order_id),
+			 FOREIGN KEY(seller_id) REFERENCES SELLERS(seller_id)
 );
 
 
