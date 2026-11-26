@@ -49,7 +49,7 @@ CREATE TABLE PAYMENT(
              order_id TEXT,
 			 paymet_type TEXT,
 			 payment_installments char(2),
-			 payment_value NUMERIC(3,2)
+			 payment_value NUMERIC(3,2),
 			 FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
 			 
 );
@@ -58,6 +58,6 @@ CREATE TABLE REVIEWS (
 		review_id TEXT PRIMARY KEY,
 		order_id TEXT,
 		review_score INTEGER,
-		review_comment_message TEXT
+		review_comment_message TEXT,
 		FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
 );
