@@ -1,6 +1,6 @@
 CREATE TABLE CUSTOMERS (
              customer_id TEXT PRIMARY KEY,
-	         customer_unique_id TEXT NOT NULL;
+	         customer_unique_id TEXT NOT NULL,
 			 city TEXT,
 			 state_ TEXT
 			 			 
