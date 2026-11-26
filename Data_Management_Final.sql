@@ -56,12 +56,19 @@ CREATE TABLE REVIEWS (
 		FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
 );
 
-INSERT INTO CUSTOMERS (customer_id, customer_unique_id, city, state_)
-SELECT MIN(customer_id), customer_unique_id, customer_city, customer_state
-FROM olist_customers_dataset
-GROUP BY customer_unique_id;
+INSERT OR IGNORE INTO CUSTOMERS
+SELECT customer_id, customer_unique_id,
+       customer_city, customer_state
+FROM olist_customers_dataset;
+INSERT INTO ORDERS
+SELECT order_id, customer_id, order_status,
+       order_purchase_timestamp
+FROM olist_orders_dataset;
+INSERT INTO PAYMENT
+SELECT order_id, payment_type,
+       payment_installments, payment_value
+FROM olist_order_payments_dataset;
 
---ORDER dataset
 
 INSERT INTO PRODUCT(product_id, product_category_name)
 SELECT product_id, product_category_name
