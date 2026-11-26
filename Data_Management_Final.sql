@@ -79,3 +79,11 @@ INSERT OR IGNORE INTO REVIEWS
 SELECT review_id, order_id,
        review_score, review_comment_message
 FROM olist_order_reviews_dataset;
+
+INSERT INTO SELLERS
+SELECT seller_id, seller_city, seller_state
+FROM olist_sellers_dataset;
+
+INSERT INTO ORDER_ITEMS
+SELECT order_id, order_item_id, seller_id, shipping_limit_date, price, freight_value
+FROM olist_order_items_dataset;
