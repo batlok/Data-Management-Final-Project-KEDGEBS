@@ -74,3 +74,8 @@ FROM olist_order_payments_dataset;
 INSERT INTO PRODUCT
 SELECT product_id, product_category_name
 FROM olist_products_dataset;
+
+INSERT OR IGNORE INTO REVIEWS
+SELECT review_id, order_id,
+       review_score, review_comment_message
+FROM olist_order_reviews_dataset;
