@@ -61,3 +61,8 @@ CREATE TABLE REVIEWS (
 		review_comment_message TEXT,
 		FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
 );
+
+INSERT INTO CUSTOMERS (customer_id, customer_unique_id, city, state_)
+SELECT MIN(customer_id), customer_unique_id, customer_city, customer_state
+FROM olist_customers_dataset
+GROUP BY customer_unique_id;
