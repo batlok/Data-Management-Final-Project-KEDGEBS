@@ -60,3 +60,9 @@ INSERT INTO CUSTOMERS (customer_id, customer_unique_id, city, state_)
 SELECT MIN(customer_id), customer_unique_id, customer_city, customer_state
 FROM olist_customers_dataset
 GROUP BY customer_unique_id;
+
+--ORDER dataset
+
+INSERT INTO PRODUCT(product_id, product_category_name)
+SELECT product_id, product_category_name
+FROM olist_products_dataset;
