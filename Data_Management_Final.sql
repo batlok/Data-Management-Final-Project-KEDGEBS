@@ -45,5 +45,11 @@ CREATE TABLE ORDER_ITEMS (
 			 FOREIGN KEY(seller_id) REFERENCES SELLERS(seller_id)
 );
 
-
-
+CREATE TABLE PAYMENT(
+             order_id TEXT,
+			 paymet_type TEXT,
+			 payment_installments char(2),
+			 payment_value NUMERIC(3,2)
+			 FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
+			 
+)
