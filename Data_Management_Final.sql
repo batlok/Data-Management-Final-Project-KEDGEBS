@@ -6,12 +6,6 @@ CREATE TABLE CUSTOMERS (
 			 			 
 );
 
-CREATE TABLE CATEGORIES (
-             category_id INTEGER PRIMARY KEY,
-			 name_pt TEXT,
-			 name_en TEXT
-);
-
 CREATE TABLE ORDERS (
 		order_id TEXT PRIMARY KEY,
 		customer_id TEXT,
