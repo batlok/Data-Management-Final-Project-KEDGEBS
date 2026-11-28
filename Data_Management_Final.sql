@@ -113,3 +113,11 @@ SELECT seller_state
 FROM SELLERS
 WHERE seller_state IS NOT NULL
 ORDER BY state;
+
+--Question3
+SELECT city, state_ AS state
+FROM CUSTOMERS
+UNION
+SELECT seller_city, seller_state
+FROM SELLERS
+ORDER BY state, city;
