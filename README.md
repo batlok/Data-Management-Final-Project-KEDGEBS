@@ -8,6 +8,17 @@ Batuhan Uzunlar, Anbuchelvan MANIVANNAN, Ali Esmaeil Zadeh, and Likit Poojari SU
 
 We developed this project for the Data Management course at KEDGE Business School. Using SQLite and the Brazilian E-Commerce Public Dataset by Olist, we built a relational database and explored where customers and sellers are located across Brazil.
 
+
+### Database design and data loading
+
+We created new tables that include necessary columns.
+
+- **Primary keys.** Each order is identified by `order_id`. In `ORDER_ITEMS`, we used `(order_id, item_no)` as a composite primary key because one order can contain several items.
+- **Foreign keys.** `ORDERS.customer_id` links each order to a customer. In `ORDER_ITEMS`, `order_id` and `seller_id` identify the order and seller associated with each item.
+- **Required fields.** We used `NOT NULL` for fields such as `price` and `freight_value` so that each order item has both amounts recorded.
+- **Data loading.** We used `INSERT INTO ... SELECT` to copy selected columns from the imported Olist tables. For `CUSTOMERS` and `REVIEWS`, we used `INSERT OR IGNORE` so that a repeated primary key would be skipped and the remaining rows could still be loaded.
+
+
 ## Analysis
 
 
