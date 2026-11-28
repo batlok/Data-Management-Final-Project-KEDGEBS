@@ -63,7 +63,7 @@ FROM olist_customers_dataset;
 
 INSERT INTO ORDERS
 SELECT order_id, customer_id, order_status,
-       order_purchase_timestamp, order_delivered_customer_date
+       order_purchase_timestamp
 FROM olist_orders_dataset;
 
 INSERT INTO PAYMENT
