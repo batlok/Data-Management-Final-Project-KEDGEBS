@@ -95,3 +95,11 @@ DROP TABLE olist_order_reviews_dataset;
 DROP TABLE olist_orders_dataset;
 DROP TABLE olist_products_dataset;
 DROP TABLE olist_sellers_dataset;
+
+--Question1
+SELECT order_id, customer_id, order_purchase_timestamp
+FROM ORDERS
+WHERE order_status = 'shipped'
+AND order_purchase_timestamp >= '2018-01-01'
+AND order_purchase_timestamp < '2018-02-01'
+ORDER BY order_purchase_timestamp;
