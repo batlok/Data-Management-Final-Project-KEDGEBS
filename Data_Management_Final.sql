@@ -103,3 +103,13 @@ WHERE order_status = 'shipped'
 AND order_purchase_timestamp >= '2018-01-01'
 AND order_purchase_timestamp < '2018-02-01'
 ORDER BY order_purchase_timestamp;
+
+--Question2
+SELECT state_ AS state
+FROM CUSTOMERS
+WHERE state_ IS NOT NULL
+EXCEPT
+SELECT seller_state
+FROM SELLERS
+WHERE seller_state IS NOT NULL
+ORDER BY state;
